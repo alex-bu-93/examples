@@ -1,0 +1,39 @@
+<nz-layout style="height: 100vh">
+  <nz-sider nzCollapsed nzCollapsedWidth="60" style="padding-top: 50px">
+    <ul nz-menu nzTheme="dark" nzMode="inline" class="w-100">
+      <li *ngFor="let item of itemsLvl1" nz-menu-item style="height: 60px" class="p-0">
+        <p style="height: 35px" class="text-center mb-0">
+          <i nz-icon [nzType]="item.icon"></i>
+        </p>
+        <p nz-typography nzEllipsis style="line-height: 20px" class="text-center text-light px-2">
+          {{item.text}}
+        </p>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-sider nzCollapsible
+            class="bg-light"
+            [nzTrigger]="null"
+            [(nzCollapsed)]="isCollapsed">
+    <div style="height: 50px" class="d-flex justify-content-center align-items-center bg-light border-bottom mb-2">
+      <span *ngIf="!isCollapsed" class="text-nowrap">SBER Commodity</span>
+    </div>
+    <h4 nz-typography nzEllipsis [class.mx-1]="isCollapsed" [class.mx-3]="!isCollapsed">Precious</h4>
+    <ul nz-menu nzMode="inline" class="bg-light">
+      <li *ngFor="let item of itemsLvl2" nz-menu-item>
+        <i style="font-size: 16px; line-height: 16px" nz-icon [nzType]="item.icon"></i>
+        <span>{{item.text}}</span>
+      </li>
+    </ul>
+    <button nz-button nzShape="round" nzSize="small"
+            style="height: 40px; bottom: 40px; right: -20px"
+            class="position-absolute"
+            (click)="isCollapsed = !isCollapsed">
+      <i nz-icon [nzType]="isCollapsed ? 'right' : 'left'"></i>
+    </button>
+  </nz-sider>
+  <nz-layout>
+    <nz-header style="height: 50px" class="bg-white border-bottom"></nz-header>
+    <nz-content></nz-content>
+  </nz-layout>
+</nz-layout>
