@@ -1,172 +1,333 @@
-<nz-layout style="height: 100vh">
-  <nz-header style="height: 50px; background-color: #1F1F22"></nz-header>
-  <nz-content class="bg-dark-content overflow-auto p-3">
-    <div class="d-flex align-items-baseline bg-dark-content mb-3">
-      <div style="width: 100px" class="text-nowrap text-white">
-        <i nz-icon nzType="rollback"></i>
-        <span class="ml-1">Grid</span>
-      </div>
-      <div>
-        <h4 class="text-white mb-0">NVTK</h4>
-        <small class="text-light-dark">RU0000A0JW4Z1</small>
-      </div>
-      <div class="ml-auto d-flex">
-        <div class="text-white">
-          <i nz-icon nzType="form"></i>
-          <span class="ml-1">Edit</span>
+<nz-layout style="height: 100vh" class="bg-dark-content">
+  <perfect-scrollbar>
+    <nz-header style="height: 50px; background-color: #1F1F22"></nz-header>
+    <nz-content class="h-100 p-3">
+      <div class="d-flex align-items-baseline bg-dark-content mb-3">
+        <div style="width: 100px" class="text-nowrap text-white">
+          <i nz-icon nzType="rollback"></i>
+          <span class="ml-1">Grid</span>
         </div>
-        <div class="text-white ml-4">
-          <i nz-icon nzType="export"></i>
-          <span class="ml-1">Export .xls</span>
+        <div>
+          <h4 class="text-white mb-0">NVTK</h4>
+          <small class="text-light-dark">RU0000A0JW4Z1</small>
+        </div>
+        <div class="ml-auto d-flex">
+          <div class="text-white">
+            <i nz-icon nzType="form"></i>
+            <span class="ml-1">Edit</span>
+          </div>
+          <div class="text-white ml-4">
+            <i nz-icon nzType="export"></i>
+            <span class="ml-1">Export .xls</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div style="max-width: 1800px" class="container-fluid">
-      <div class="row">
-        <div style="min-width: 300px; max-width: 300px" class="col-lg mb-2 p-1">
-          <app-info-card title="Short information">
-            <table>
-              <tbody>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Short Name</td><td class="text-white">КСУ обл.</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Security</td><td class="text-white">NVTK</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">ISIN</td><td class="text-white">RU000A0JW4Z1</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Price</td><td class="text-white">1.00</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">CCP Haircut</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (lots)</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (cash)</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Wav Price</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">PnL</td><td class="text-white-50">-</td></tr>
-              </tbody>
-            </table>
-          </app-info-card>
-        </div>
-        <div style="min-width: 550px" class="col-lg mb-2 p-1">
-          <app-info-card title="Limits">
-            <div class="row">
-              <div class="col">
-                <nz-progress nzType="circle"
-                             nzStrokeColor="green"
-                             [nzPercent]="25"
-                             [nzWidth]="80">
-                </nz-progress>
-                <p class="text-white mb-0">
-                  <span class="text-light-dark">Buy Limit</span>
-                  <span class="float-right">10 000 000 000</span>
-                </p>
-                <p class="text-light-dark text-right mb-0">10 000 000 000, 00P</p>
-                <nz-divider class="bg-light-dark"></nz-divider>
-                <table class="w-100 mb-5">
-                  <tbody>
-                  <tr style="line-height: 28px"><td class="text-white-50 w-50 pr-3">MM Buy Limit</td><td class="text-right text-white">1 750 000 000</td></tr>
-                  <tr style="line-height: 28px"><td class="text-white-50 w-50 pr-3">FR Bid Max Traded</td><td class="text-right text-white">500 000 000</td></tr>
-                  <tr style="line-height: 28px"><td class="text-white-50 w-50 pr-3">Hitter Bid Limit</td><td class="text-right text-white">250 000 000</td></tr>
-                  </tbody>
-                </table>
-                <table class="w-100">
-                  <tbody>
-                  <tr style="line-height: 28px"><td class="text-white-50 w-50 pr-3">Min Rate</td><td class="text-right text-white">-10</td></tr>
-                  </tbody>
-                </table>
+      <div style="max-width: 1800px" class="container-fluid">
+        <div class="row">
+          <div style="min-width: 300px; max-width: 300px" class="col-lg mb-2 p-1">
+            <app-info-card title="Short information">
+              <table>
+                <tbody>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Short Name</td>
+                  <td class="text-white">КСУ обл.</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Security</td>
+                  <td class="text-white">NVTK</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">ISIN</td>
+                  <td class="text-white">RU000A0JW4Z1</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Price</td>
+                  <td class="text-white">1.00</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">CCP Haircut</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (lots)</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (cash)</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Wav Price</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">PnL</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                </tbody>
+              </table>
+            </app-info-card>
+          </div>
+          <div style="min-width: 550px" class="col-lg mb-2 p-1">
+            <app-info-card title="Limits">
+              <div class="row">
+                <div class="col">
+                  <nz-progress nzType="circle"
+                               nzStrokeColor="green"
+                               [nzPercent]="25"
+                               [nzWidth]="80">
+                  </nz-progress>
+                  <p class="text-white mb-0">
+                    <span class="text-light-dark">Buy Limit</span>
+                    <span class="float-right">10 000 000 000</span>
+                  </p>
+                  <p class="text-light-dark text-right mb-0">10 000 000 000, 00P</p>
+                  <nz-divider class="bg-light-dark"></nz-divider>
+                  <table class="w-100 mb-5">
+                    <tbody>
+                    <tr style="line-height: 28px">
+                      <td class="text-white-50 w-50 pr-3">MM Buy Limit</td>
+                      <td class="text-right text-white">1 750 000 000</td>
+                    </tr>
+                    <tr style="line-height: 28px">
+                      <td class="text-white-50 w-50 pr-3">FR Bid Max Traded</td>
+                      <td class="text-right text-white">500 000 000</td>
+                    </tr>
+                    <tr style="line-height: 28px">
+                      <td class="text-white-50 w-50 pr-3">Hitter Bid Limit</td>
+                      <td class="text-right text-white">250 000 000</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <table class="w-100">
+                    <tbody>
+                    <tr style="line-height: 28px">
+                      <td class="text-white-50 w-50 pr-3">Min Rate</td>
+                      <td class="text-right text-white">-10</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col">
+                  <nz-progress nzType="circle"
+                               nzStrokeColor="red"
+                               [nzPercent]="95"
+                               [nzWidth]="80">
+                  </nz-progress>
+                  <p class="text-white mb-0">
+                    <span class="text-light-dark">Sell Limit</span>
+                    <span class="float-right">10 000 000 000</span>
+                  </p>
+                  <p class="text-light-dark text-right mb-0">10 000 000 000, 00P</p>
+                  <nz-divider class="bg-light-dark"></nz-divider>
+                  <table class="w-100 mb-5">
+                    <tbody>
+                    <tr style="line-height: 28px">
+                      <td class="text-white-50 w-50 pr-3">MM Sell Limit</td>
+                      <td class="text-right text-white">5 000 348</td>
+                    </tr>
+                    <tr style="line-height: 28px">
+                      <td class="text-white-50 w-50 pr-3">FR Ask Max Traded</td>
+                      <td class="text-right text-white">5 000 348</td>
+                    </tr>
+                    <tr style="line-height: 28px">
+                      <td class="text-white-50 w-50 pr-3">Hitter Ask Limit</td>
+                      <td class="text-right text-white">5 000 348</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <table class="w-100">
+                    <tbody>
+                    <tr style="line-height: 28px">
+                      <td class="text-white-50 w-50 pr-3">Max Rate</td>
+                      <td class="text-right text-white">10</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              <div class="col">
-                <nz-progress nzType="circle"
-                             nzStrokeColor="red"
-                             [nzPercent]="95"
-                             [nzWidth]="80">
-                </nz-progress>
-                <p class="text-white mb-0">
-                  <span class="text-light-dark">Sell Limit</span>
-                  <span class="float-right">10 000 000 000</span>
-                </p>
-                <p class="text-light-dark text-right mb-0">10 000 000 000, 00P</p>
-                <nz-divider class="bg-light-dark"></nz-divider>
-                <table class="w-100 mb-5">
-                  <tbody>
-                  <tr style="line-height: 28px"><td class="text-white-50 w-50 pr-3">MM Sell Limit</td><td class="text-right text-white">5 000 348</td></tr>
-                  <tr style="line-height: 28px"><td class="text-white-50 w-50 pr-3">FR Ask Max Traded</td><td class="text-right text-white">5 000 348</td></tr>
-                  <tr style="line-height: 28px"><td class="text-white-50 w-50 pr-3">Hitter Ask Limit</td><td class="text-right text-white">5 000 348</td></tr>
-                  </tbody>
-                </table>
-                <table class="w-100">
-                  <tbody>
-                  <tr style="line-height: 28px"><td class="text-white-50 w-50 pr-3">Max Rate</td><td class="text-right text-white">10</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </app-info-card>
+            </app-info-card>
+          </div>
+          <div style="min-width: 300px" class="col-lg mb-2 p-1">
+            <app-info-card title="Short information">
+              <table>
+                <tbody>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Short Name</td>
+                  <td class="text-white">КСУ обл.</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Security</td>
+                  <td class="text-white">NVTK</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">ISIN</td>
+                  <td class="text-white">RU000A0JW4Z1</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Price</td>
+                  <td class="text-white">1.00</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">CCP Haircut</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (lots)</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (cash)</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Wav Price</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">PnL</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                </tbody>
+              </table>
+            </app-info-card>
+          </div>
+          <div style="min-width: 300px" class="col-lg mb-2 p-1">
+            <app-info-card title="Short information">
+              <table>
+                <tbody>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Short Name</td>
+                  <td class="text-white">КСУ обл.</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Security</td>
+                  <td class="text-white">NVTK</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">ISIN</td>
+                  <td class="text-white">RU000A0JW4Z1</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Price</td>
+                  <td class="text-white">1.00</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">CCP Haircut</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (lots)</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (cash)</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Wav Price</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">PnL</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                </tbody>
+              </table>
+            </app-info-card>
+          </div>
         </div>
-        <div style="min-width: 300px" class="col-lg mb-2 p-1">
-          <app-info-card title="Short information">
-            <table>
-              <tbody>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Short Name</td><td class="text-white">КСУ обл.</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Security</td><td class="text-white">NVTK</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">ISIN</td><td class="text-white">RU000A0JW4Z1</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Price</td><td class="text-white">1.00</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">CCP Haircut</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (lots)</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (cash)</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Wav Price</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">PnL</td><td class="text-white-50">-</td></tr>
-              </tbody>
-            </table>
-          </app-info-card>
-        </div>
-        <div style="min-width: 300px" class="col-lg mb-2 p-1">
-          <app-info-card title="Short information">
-            <table>
-              <tbody>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Short Name</td><td class="text-white">КСУ обл.</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Security</td><td class="text-white">NVTK</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">ISIN</td><td class="text-white">RU000A0JW4Z1</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Price</td><td class="text-white">1.00</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">CCP Haircut</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (lots)</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (cash)</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Wav Price</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">PnL</td><td class="text-white-50">-</td></tr>
-              </tbody>
-            </table>
-          </app-info-card>
+        <div class="row">
+          <div style="min-width: 300px; max-width: 300px" class="col-lg mb-2 p-1">
+            <app-info-card title="Short information">
+              <table>
+                <tbody>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Short Name</td>
+                  <td class="text-white">КСУ обл.</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Security</td>
+                  <td class="text-white">NVTK</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">ISIN</td>
+                  <td class="text-white">RU000A0JW4Z1</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Price</td>
+                  <td class="text-white">1.00</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">CCP Haircut</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (lots)</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (cash)</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Wav Price</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">PnL</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                </tbody>
+              </table>
+            </app-info-card>
+          </div>
+          <div style="min-width: 300px" class="col-lg mb-2 p-1">
+            <app-info-card title="Short information">
+              <table>
+                <tbody>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Short Name</td>
+                  <td class="text-white">КСУ обл.</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Security</td>
+                  <td class="text-white">NVTK</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">ISIN</td>
+                  <td class="text-white">RU000A0JW4Z1</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Price</td>
+                  <td class="text-white">1.00</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">CCP Haircut</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (lots)</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (cash)</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">Wav Price</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                <tr style="line-height: 28px">
+                  <td class="text-nowrap text-white-50 w-50 pr-3">PnL</td>
+                  <td class="text-white-50">-</td>
+                </tr>
+                </tbody>
+              </table>
+            </app-info-card>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div style="min-width: 300px; max-width: 300px" class="col-lg mb-2 p-1">
-          <app-info-card title="Short information">
-            <table>
-              <tbody>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Short Name</td><td class="text-white">КСУ обл.</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Security</td><td class="text-white">NVTK</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">ISIN</td><td class="text-white">RU000A0JW4Z1</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Price</td><td class="text-white">1.00</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">CCP Haircut</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (lots)</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (cash)</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Wav Price</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">PnL</td><td class="text-white-50">-</td></tr>
-              </tbody>
-            </table>
-          </app-info-card>
-        </div>
-        <div style="min-width: 300px" class="col-lg mb-2 p-1">
-          <app-info-card title="Short information">
-            <table>
-              <tbody>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Short Name</td><td class="text-white">КСУ обл.</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Security</td><td class="text-white">NVTK</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">ISIN</td><td class="text-white">RU000A0JW4Z1</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Price</td><td class="text-white">1.00</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">CCP Haircut</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (lots)</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Volume Traded (cash)</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">Wav Price</td><td class="text-white-50">-</td></tr>
-              <tr style="line-height: 28px"><td class="text-nowrap text-white-50 w-50 pr-3">PnL</td><td class="text-white-50">-</td></tr>
-              </tbody>
-            </table>
-          </app-info-card>
-        </div>
-      </div>
-    </div>
-  </nz-content>
+    </nz-content>
+  </perfect-scrollbar>
 </nz-layout>

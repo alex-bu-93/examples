@@ -30,7 +30,6 @@
             ],
             "styles": [
               "src/styles/customize-ant-design/styles.less",
-              "src/styles/customize-bootstrap/styles.scss",
               "src/styles/styles.scss"
             ],
             "scripts": []
@@ -95,7 +94,6 @@
             ],
             "styles": [
               "src/styles/customize-ant-design/styles.less",
-              "src/styles/customize-bootstrap/styles.scss",
               "src/styles/styles.scss"
             ],
             "scripts": []
