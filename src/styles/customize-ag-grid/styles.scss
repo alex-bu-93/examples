@@ -18,5 +18,7 @@
 
 .col-group-border-color-bound {
   &-left:not(.ag-cell-focus) { border-left: 1px solid #7D8499 !important }
+  &-left-default:not(.ag-cell-focus) { border-left: 1px solid #DEE2EA !important }
   &-right:not(.ag-cell-focus) { border-right: 1px solid #7D8499 !important }
+  &-right-default:not(.ag-cell-focus) { border-right: 1px solid #DEE2EA !important }
 }

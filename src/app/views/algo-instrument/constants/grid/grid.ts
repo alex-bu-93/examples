@@ -191,11 +191,15 @@ const HEADER_GROUP_BG = {
 
 export const isFirstColumn = column => column.colId === first(column.parent.displayedChildren)?.colId;
 export const isLastColumn = column => column.colId === last(column.parent.displayedChildren)?.colId;
-export const getColGroupClass = ({columnGroup}) => HEADER_GROUP_BG[columnGroup.groupId] || 'col-group-bg-color-default';
+export const getColGroupClass = ({columnGroup}) => [
+  HEADER_GROUP_BG[columnGroup.groupId] || 'col-group-bg-color-default',
+  'col-group-border-color-bound-left',
+  'col-group-border-color-bound-right'
+];
 const getBordersClass = column => [
-  isFirstColumn(column) && `col-group-border-color-bound-left`,
-  isLastColumn(column) && `col-group-border-color-bound-right`
-].filter(Boolean).join(' ');
+  `col-group-border-color-bound-left${!isFirstColumn(column) ? '-default' : ''}`,
+  `col-group-border-color-bound-right${!isLastColumn(column) ? '-default' : ''}`,
+].join(' ');
 export const getColClass = ({column}) => [
   column.parent?.groupId && `${HEADER_GROUP_BG[column.parent?.groupId]}-light`,
   getBordersClass(column),
