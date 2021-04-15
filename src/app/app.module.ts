@@ -12,14 +12,12 @@ import { AppComponent }            from './app.component';
 registerLocaleData(en);
 
 const BROWSER_MODULES = [BrowserModule, BrowserAnimationsModule];
-const VIEWS_MODULES = [
-  DoubleSiderLayoutModule
-];
+const VIEWS_MODULES = [DoubleSiderLayoutModule];
 
 @NgModule({
   imports: [
-    HttpClientModule,
     AppRoutingModule,
+    HttpClientModule,
     BROWSER_MODULES,
     VIEWS_MODULES
   ],

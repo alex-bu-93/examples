@@ -1,11 +1,10 @@
 import { NgModule }                                from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { DoubleSiderLayoutComponent }              from './views/double-sider-layout';
-import { AlgoInstrumentComponent }                 from './views/algo-instrument';
 
 const routes: Routes = [
   {path: 'double-sider-layout', component: DoubleSiderLayoutComponent},
-  {path: 'algo-instrument', component: AlgoInstrumentComponent}
+  {path: 'algo-instrument', loadChildren: () => import('./views/algo-instrument').then(m => m.AlgoInstrumentModule)}
 ];
 
 @NgModule({

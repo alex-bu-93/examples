@@ -1,25 +1,17 @@
-import { NgModule }                from '@angular/core';
-import { CommonModule }            from '@angular/common';
-import { PerfectScrollbarModule }  from 'ngx-perfect-scrollbar';
-import { NzLayoutModule }          from 'ng-zorro-antd/layout';
-import { NzIconModule }            from 'ng-zorro-antd/icon';
-import { NzProgressModule }        from 'ng-zorro-antd/progress';
-import { NzDividerModule }         from 'ng-zorro-antd/divider';
-import { InfoCardModule }          from './widgets/info-card';
-import { AlgoInstrumentComponent } from './algo-instrument.component';
+import { NgModule }                    from '@angular/core';
+import { NzLayoutModule }              from 'ng-zorro-antd/layout';
+import { InstrumentsListModule }       from './views/instruments-list';
+import { DetailedViewModule }          from './views/detailed-view';
+import { AlgoInstrumentRoutingModule } from './algo-instrument-routing.module';
+import { AlgoInstrumentComponent }     from './algo-instrument.component';
 
-const ANT_DESIGN_MODULES = [
-  NzLayoutModule,
-  NzIconModule,
-  NzProgressModule,
-  NzDividerModule
-];
+const ANT_DESIGN_MODULES = [NzLayoutModule];
+const VIEWS_MODULES = [InstrumentsListModule, DetailedViewModule];
 
 @NgModule({
   imports: [
-    CommonModule,
-    InfoCardModule,
-    PerfectScrollbarModule,
+    AlgoInstrumentRoutingModule,
+    VIEWS_MODULES,
     ANT_DESIGN_MODULES
   ],
   declarations: [AlgoInstrumentComponent]
