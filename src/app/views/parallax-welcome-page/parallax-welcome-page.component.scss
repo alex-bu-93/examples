@@ -1,0 +1,75 @@
+::ng-deep .ant-card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.bottom-top {
+  animation: 0.5s ease-in-out alternate toTop;
+  animation-iteration-count: 1;
+}
+
+.periodic-hesitation {
+  animation: .2s ease-in-out alternate periodic;
+  animation-iteration-count: 2;
+  animation-delay: 0.5s;
+}
+
+.candle {
+  -webkit-animation: in 1s;
+  transform: translateY(10px);
+
+  &:hover {
+    -webkit-animation: out 1s;
+    transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes in {
+  from { -webkit-transform: translateY(0px) }
+  to   { -webkit-transform: translateY(10px) }
+}
+
+@-webkit-keyframes out {
+  0%   { -webkit-transform: translateY(10px) }
+  100% { -webkit-transform: translateY(0px) }
+}
+
+@keyframes toTop { from { margin-top: 100vh } to { margin-top: 0 } }
+@keyframes periodic { from { margin-top: 0 } to { margin-top: 120px } }
+
+.robot-card {
+  border-radius: 25px;
+  border: 1px solid;
+
+  .image {
+    width: 188px;
+    margin-left: -24px;
+    margin-top: -80px;
+  }
+
+  .logo-container {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 8px;
+    transition: all 0.2s;
+    i {
+      vertical-align: 5px;
+      transition: all 0.2s
+    }
+  }
+
+  &:hover.logo-container {
+    width: 188px;
+    height: 278px;
+    border-radius: 25px;
+    margin-top: -24px;
+    margin-left: -24px;
+    i {
+      margin-top: 21px;
+      margin-left: 21px;
+      font-size: 20px
+    }
+  }
+}

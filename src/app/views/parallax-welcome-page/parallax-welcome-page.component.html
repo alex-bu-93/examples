@@ -1,0 +1,171 @@
+<div id="scene">
+  <div data-depth="0.5">
+    <ng-container *ngIf="is1WaveRendered">
+      <div class="periodic-hesitation"></div>
+      <div class="bottom-top">
+        <div style="width: 100vw; height: 100vh" class="position-fixed">
+          <img alt="wave-back"
+               src="assets/parallax-welcome-page/wave-back.svg"
+               style="bottom: 0; width: 120%; left: -10%"
+               class="position-absolute"/>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div data-depth="0.6">
+    <ng-container *ngIf="is3waveRendered">
+    <div  style="width: 100vw; height: 100vh" class="position-fixed">
+      <div class="periodic-hesitation"></div>
+      <div class="bottom-top">
+        <img alt="wave-front"
+             src="assets/parallax-welcome-page/wave-front.svg"
+             style="bottom: -70px; width: 120%; left: -10%"
+             class="position-absolute"/>
+      </div>
+    </div>
+    </ng-container>
+  </div>
+  <div data-depth="0.7">
+    <div style="width: 100vw; height: 100vh" class="position-relative d-flex">
+      <div class="position-relative w-100 h-50 mt-auto">
+        <img *ngFor="let item of BOTTOM_ITEMS"
+             width="50"
+             class="position-absolute"
+             [@bounceInUp]="item.isRendered"
+             [src]="'../assets/parallax-welcome-page/bottom-items/' + item.type + '.png'"
+             [alt]="item.type"
+             [style.bottom]="item.bottom"
+             [style.left]="item.left"
+             [class.d-none]="!item.isRendered"/>
+      </div>
+    </div>
+  </div>
+  <div data-depth="0.8">
+    <ng-container *ngIf="is2WaveRendered">
+      <div class="periodic-hesitation"></div>
+      <div class="bottom-top">
+        <div style="position: fixed; width: 100vw; height: 100vh">
+          <img style="bottom: -70px; left: -10%; width: 110%"
+               class="position-absolute"
+               alt="wave-line"
+               src="assets/parallax-welcome-page/wave-line.svg"/>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+<div *ngIf="isHeaderRendered"
+     style="top: 20px"
+     class="position-fixed animated fadeIn d-flex justify-content-between w-100 px-3">
+  <img alt="logo" src="assets/parallax-welcome-page/logo.svg"/>
+  <button nz-button
+          [nzType]="selectedTab ? 'default' : 'primary'"
+          (click)="onSwitchTab()"> {{selectedTab ? 'Back' : 'Sign in'}}
+  </button>
+</div>
+<div style="top: 15vh; height: 500px" class="position-fixed w-100" [ngSwitch]="selectedTab">
+  <div *ngSwitchCase="Tabs.Welcome"
+       style="margin-top: 80px"
+       class="d-flex justify-content-around"
+       [@fadeOutUp]="isSwitchingTab">
+    <div [class.d-none]="!isSloganRendered" [@fadeInUp]="isSloganRendered">
+      <h1 style="font-size: 66px">Algo<span class="text-primary font-weight-bold">/</span>Platform</h1>
+      <p style="font-size: 16px" class="font-weight-bold">Set. Start. Rule the market</p>
+    </div>
+    <div style="width: 395px"
+         class="position-relative"
+         [@fadeInUp]="isSloganRendered">
+      <div *ngFor="let candle of CANDLES let index = index"
+           class="position-absolute"
+           [style.top]="candle.top"
+           [style.left]="index * 25 + 'px'"
+           (mouseenter)="candle.isHover = true"
+           (mouseleave)="candle.isHover = false">
+        <img *ngIf="candle.isRendered"
+             class="animated fadeIn candle"
+             [alt]="'candle_' + index"
+             [src]="'assets/parallax-welcome-page/candles/candle ' + (index + 1) + (candle.isHover ? ' active' : '') + '.svg'"/>
+      </div>
+    </div>
+  </div>
+  <div *ngSwitchCase="Tabs.Login" class="d-flex justify-content-center">
+    <app-request-wrapper [request$]="login$">
+      <nz-card style="width:320px; background: initial" class="border-0 mx-auto">
+        <h5 class="text-center font-weight-bold mb-4">Sign in</h5>
+        <form autocomplete="off">
+          <app-reactive-input fieldId="login"
+                              placeholder="Enter your MSK login"
+                              class="mb-2"
+                              [noValidation]="true"
+                              [noMarginBottom]="true"
+                              [control]="fg.get('login')"
+                              (enterPress)="onSubmit()">
+          </app-reactive-input>
+          <app-reactive-input fieldId="password"
+                              placeholder="Password"
+                              type="password"
+                              class="mb-4"
+                              [noValidation]="true"
+                              [noMarginBottom]="true"
+                              [control]="fg.get('password')"
+                              (enterPress)="onSubmit()">
+          </app-reactive-input>
+        </form>
+        <button nz-button
+                nzType="primary"
+                class="w-100 mb-2"
+                (click)="onSubmit()">Sign in
+        </button>
+      </nz-card>
+    </app-request-wrapper>
+  </div>
+  <div *ngSwitchCase="Tabs.Scopes" class="d-flex justify-content-center">
+    <app-request-wrapper #scopesRs [request$]="scopes$">
+      <div *ngIf="scopesRs.data !== undefined && scopesRs.data as scopes"
+           class="d-flex justify-content-center">
+        <div *ngIf="scopes.length else noInfoTmp"
+             style="max-width: 830px; min-width: 200px"
+             class="d-flex justify-content-center flex-wrap">
+          <nz-card *ngFor="let scope of scopes"
+                   style="width: 190px; min-width: 190px; height: 280px; cursor: pointer"
+                   class="robot-card d-flex flex-column mx-2 mb-2">
+            <div class="h-25">
+              <div class="logo-container"
+                   [style.background-color]="scope.theme?.bgColor">
+                <i nz-icon
+                   nzTheme="twotone"
+                   [nzType]="scope.theme?.icon"
+                   [nzTwotoneColor]="scope.theme?.iconColor">
+                </i>
+              </div>
+            </div>
+            <div class="h-50">
+              <img *ngIf="scope.theme.icon as icon"
+                   alt="robot-image"
+                   class="image"
+                   [src]="'assets/parallax-welcome-page/robot-card/' + icon + '.svg'"/>
+            </div>
+            <div class="h-25 mt-auto">
+              <h5 class="font-weight-bold">Name Robot</h5>
+              <p class="text-muted">Go to the robot<i nz-icon nzType="arrow-right" class="ml-2"></i></p>
+            </div>
+          </nz-card>
+        </div>
+      </div>
+    </app-request-wrapper>
+  </div>
+</div>
+<img alt="logo-right"
+     src="assets/parallax-welcome-page/logo-right.svg"
+     width="360"
+     style="bottom: -80px; right: -80px"
+     class="position-fixed"
+     [class.d-none]="!isBottomLogoRendered"
+     [@rotateInUpLeft]="isBottomLogoRendered"/>
+
+
+<ng-template #noInfoTmp>
+  <p class="text-center">No data to display</p>
+</ng-template>

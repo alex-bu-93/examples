@@ -1,0 +1,24 @@
+<div *ngIf="control"
+     class="position-relative"
+     [class.mb-0]="noMarginBottom"
+     [class.mb-3]="!noMarginBottom">
+  <app-reactive-label *ngIf="label"
+                      [label]="label"
+                      [fieldId]="fieldId"
+                      [tooltip]="tooltip"
+                      [hasRequiredIndicator]="hasRequiredIndicator">
+  </app-reactive-label>
+  <nz-form-item class="mb-0">
+    <nz-form-control [nzValidateStatus]="validationErrors ? 'error' : null">
+      <input nz-input
+             [id]="fieldId"
+             [formControl]="control"
+             [type]="type || 'text'"
+             [placeholder]="placeholder || ''"
+             [value]="control.value"
+             [maxLength]="maxLength || 500000"
+             (keydown.enter)="enterPress.emit($event)"/>
+    </nz-form-control>
+  </nz-form-item>
+  <app-validation-message *ngIf="!noValidation" [validationErrors]="validationErrors"></app-validation-message>
+</div>
